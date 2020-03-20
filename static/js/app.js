@@ -1,5 +1,5 @@
 function getChart(id) {
-    d3.json("../samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         console.log(data)
     
         let samples = data.samples.filter(sampleID => sampleID.id.toString() == id)[0];
@@ -82,7 +82,7 @@ function getChart(id) {
 }
 
 function getDemographic(id) {
-    d3.json("../samples.json").then((data)=> {
+    d3.json("data/samples.json").then((data)=> {
 
         let meta = data.metadata;
 
@@ -106,7 +106,7 @@ function optionChanged(id) {
 function init() {
     let dropdown = d3.select("#selDataset");
  
-    d3.json("../samples.json").then((data)=> {
+    d3.json("data/samples.json").then((data)=> {
 
         data.names.forEach(function(name) {
             dropdown.append("option").text(name).property("value");
